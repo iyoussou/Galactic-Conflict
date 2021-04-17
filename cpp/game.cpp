@@ -4,14 +4,11 @@
 #include <algorithm>
 #include <fstream>
 #include <string>
+#include "planet.h"
+#include "color.h"
 using namespace std;
 
 enum CardType { attack, negotiate, artifact, flare };
-enum Color { red, green, blue, yellow };
-
-struct planet {
-    vector<Color> habitants;
-};
 
 struct player {
     string alien;
@@ -20,7 +17,7 @@ struct player {
     planet p3;
     planet p4;
     planet p5;
-}
+};
 
 typedef struct player player;
 

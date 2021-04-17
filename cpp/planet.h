@@ -1,8 +1,10 @@
 #ifndef PLANET_H
 #define PLANET_H
+#include <vector>
+#include "color.h"
 
 struct planet {
-    vector<Color> habitants;
+    std::vector<Color> habitants;
 };
 typedef struct planet planet;
 

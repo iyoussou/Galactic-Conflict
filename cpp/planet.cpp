@@ -1,4 +1,11 @@
 #include "planet.h"
+#include <iostream>
+#include <vector>
+#include <iterator>
+#include <algorithm>
+#include <fstream>
+#include <string>
+using namespace std;
 
 planet add_ships(planet p, Color c, int amount)
 {
