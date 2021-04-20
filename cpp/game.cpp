@@ -28,6 +28,7 @@ int game()  {
     {
         cout << deck->at(i).name << "\n";
     }
+    random_shuffle(deck->begin(), deck->end());
     draw_cards(deck, Ismail.hand, 8);
     for(unsigned int i = 0; i < Ismail.hand->size(); i++)
     {
