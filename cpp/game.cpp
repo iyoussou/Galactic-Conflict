@@ -10,9 +10,10 @@ using namespace std;
 
 struct card {
     int attack = -1;
-    bool negotiate;
-    bool artifact;
-    bool flare;
+    bool negotiate = false;
+    bool artifact = false;
+    bool flare = false;
+    bool reinforcement = false;
     string name;
 };
 typedef struct card card;
@@ -35,17 +36,39 @@ vector<card> build_deck()
     ifstream decklist("deck.txt");
     while(getline(decklist, cur))
     {
-        if(cur[0] == 'a') //if attack
+        char type = cur[0];
+        if(type == 'a') //if attack
         {
             card a;
             a.attack = (int) stoi(cur.substr(2,cur.length()));
             deck.push_back(a);
         }
-        else //if not an attack (will need to be expanded)
+        else if(type == 'N') //if negotiate
+        {
+            card n;
+            n.negotiate = true;
+            deck.push_back(n);
+        }
+        else if(type == 'r') //if reinforcement
         {
             card r;
-            r.name = cur;
+            r.reinforcement = true;
+            r.attack = (int) stoi(cur.substr(2,cur.length()));
             deck.push_back(r);
+        }
+        else if(type == 'z')//if artifact
+        {
+            card z;
+            z.artifact = true;
+            z.name = cur.substr(2,cur.length());
+            deck.push_back(z);
+        }
+        else //if flare
+        {
+            card s;
+            s.flare = true;
+            s.name = cur.substr(2,cur.length());
+            deck.push_back(s);
         }
     }
     return deck;
@@ -61,7 +84,7 @@ int game()  {
     vector<card> deck = build_deck();
     for(unsigned int i = 0; i < deck.size(); i++)
     {
-        cout << deck.at(i).attack << "\n";
+        cout << deck.at(i).name << "\n";
     }
     // start turn
     // regroup phase
