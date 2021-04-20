@@ -16,9 +16,9 @@ struct card {
 typedef struct card card;
 
 //formats cards in deck.txt and constructs a deck
-std::vector<card> build_deck();
+std::vector<card> *build_deck();
 
 //add amount cards (or as many as possible) to dest, taken from src
-std::vector<card> draw_cards(std::vector<card> src, std::vector<card> dest, int amount);
+void draw_cards(std::vector<card> *src, std::vector<card> *dest, int amount);
 
 #endif

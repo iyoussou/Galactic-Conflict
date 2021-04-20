@@ -16,23 +16,22 @@ struct player {
     planet p3;
     planet p4;
     planet p5;
-    vector<card> hand;
+    vector<card> *hand = new vector<card>;
 };
 typedef struct player player;
 
 int game()  {
     // initialize game
     player Ismail;
-    vector<card> deck = build_deck();
-    for(unsigned int i = 0; i < deck.size(); i++)
+    vector<card> *deck = build_deck();
+    for(unsigned int i = 0; i < deck->size(); i++)
     {
-        cout << deck.at(i).name << "\n";
+        cout << deck->at(i).name << "\n";
     }
-    Ismail.hand = draw_cards(deck, Ismail.hand, 8);
-    cout << Ismail.hand.size() << "\n";
-    for(unsigned int i = 0; i < Ismail.hand.size(); i++)
+    draw_cards(deck, Ismail.hand, 8);
+    for(unsigned int i = 0; i < Ismail.hand->size(); i++)
     {
-        cout << Ismail.hand.at(i).attack << "\n";
+        cout << Ismail.hand->at(i).attack << "\n";
     }
     // start turn
     // regroup phase
