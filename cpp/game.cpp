@@ -24,10 +24,7 @@ int game()  {
     // initialize game
     player Ismail;
     vector<card> *deck = build_deck();
-    for(unsigned int i = 0; i < deck->size(); i++)
-    {
-        cout << deck->at(i).name << "\n";
-    }
+    srand(time(0)); //sets seed for random_shuffle
     random_shuffle(deck->begin(), deck->end());
     draw_cards(deck, Ismail.hand, 8);
     for(unsigned int i = 0; i < Ismail.hand->size(); i++)
