@@ -22,15 +22,13 @@ typedef struct player player;
 
 int game()  {
     // initialize game
-    player Ismail;
     vector<card> *deck = build_deck();
+    vector<card> *discard;
+    planet warp;
+    planet gate;
     srand(time(0)); //sets seed for random_shuffle
     random_shuffle(deck->begin(), deck->end());
-    draw_cards(deck, Ismail.hand, 8);
-    for(unsigned int i = 0; i < Ismail.hand->size(); i++)
-    {
-        cout << Ismail.hand->at(i).attack << "\n";
-    }
+    
     // start turn
     // regroup phase
     // destiny
